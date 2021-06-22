@@ -106,8 +106,24 @@ class ExploreRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
-      child: Center(child: Text("a")),
+      height: 300,
+      // decoration: BoxDecoration(
+      //     image: DecorationImage(
+      //         image: NetworkImage("https://picsum.photos/250?image=9"),
+      //         fit: BoxFit.cover)),
+      child: Column(
+        children: [
+          Center(
+            child: Text("title"),
+          ),
+          Center(
+            child: Text("subtitle"),
+          ),
+          Center(
+            child: Text("location"),
+          )
+        ],
+      ),
     );
   }
 }
