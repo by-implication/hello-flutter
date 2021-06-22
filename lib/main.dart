@@ -22,6 +22,7 @@ class MyTabPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: 3,
+        initialIndex: 1,
         child: Scaffold(
             appBar: AppBar(
               bottom: TabBar(
@@ -107,10 +108,10 @@ class ExploreRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      // decoration: BoxDecoration(
-      //     image: DecorationImage(
-      //         image: NetworkImage("https://picsum.photos/250?image=9"),
-      //         fit: BoxFit.cover)),
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: NetworkImage("https://picsum.photos/250?image=9"),
+              fit: BoxFit.cover)),
       child: Column(
         children: [
           Center(
@@ -119,11 +120,34 @@ class ExploreRow extends StatelessWidget {
           Center(
             child: Text("subtitle"),
           ),
+          TextButton(
+              style: ButtonStyle(
+                foregroundColor:
+                    MaterialStateProperty.all<Color>(Colors.orange),
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ExploreDetailPage()));
+              },
+              child: Text("Explore")),
           Center(
             child: Text("location"),
           )
         ],
       ),
     );
+  }
+}
+
+class ExploreDetailPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("explore page"),
+        ),
+        body: Column(children: [Text("explore page")]));
   }
 }
